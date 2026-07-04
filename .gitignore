@@ -1,0 +1,35 @@
+# Competition data and generated datasets
+data/raw/
+data/processed/*
+!data/processed/.gitkeep
+
+# Generated submissions; retain the directory only
+submissions/*
+!submissions/.gitkeep
+
+# Python caches and test/tool state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Local environments and secrets
+.venv/
+venv/
+.env
+.env.*
+*.pem
+*.key
+
+# Downloaded archives and platform files
+*.zip
+*.tar
+*.tar.gz
+*.7z
+.DS_Store

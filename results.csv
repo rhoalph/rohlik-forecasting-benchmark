@@ -1,0 +1,2 @@
+timestamp,git_hash,stage,change_description,local_wmae,local_wape,local_bias,runtime_minutes,kept,notes
+2026-07-04T16:54:48Z,UNTRACKED,stage_1,Implemented evaluation backtests and leakage guards,,,,,pending_review,"28 unit tests passed; no model metrics; eval and dataguard are not frozen"
