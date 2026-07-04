@@ -1,2 +1,3 @@
 timestamp,git_hash,stage,change_description,local_wmae,local_wape,local_bias,runtime_minutes,kept,notes
 2026-07-04T16:54:48Z,UNTRACKED,stage_1,Implemented evaluation backtests and leakage guards,,,,,pending_review,"28 unit tests passed; no model metrics; eval and dataguard are not frozen"
+2026-07-04T18:17:33.237000Z,a4de323,stage1.5_smoke_submission,untouched official zero template submission,NA,NA,NA,NA,audit_only,"infrastructure smoke test only; not a model or baseline; file_sha256=73d6ed98a980ed009f4357b2f6a552fd840ffc968a2c29adc41395bb433e3a93; submission_ref=54338855; status=COMPLETE; kaggle_public_wmae=80.38078; kaggle_private_wmae=81.29170"
