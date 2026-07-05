@@ -1,11 +1,18 @@
 import pandas as pd
 import pytest
 
-from features.stage3_minimal import APPROVED_FEATURES, DISCOUNT_COLUMNS
+from features.stage3_minimal import (
+    APPROVED_FEATURES,
+    CATEGORICAL_FEATURES,
+    DISCOUNT_COLUMNS,
+)
 from scripts.run_stage3_f1_ablations import (
     ABLATION_FEATURES,
     HISTORICAL_FEATURES,
     KNOWN_FUTURE_FEATURES,
+    MOST_RECENT_ORIGIN,
+    PRIORITY2_CATEGORICAL_FEATURES,
+    PRIORITY2_FEATURES,
     STATIC_FEATURES,
     categorical_features_for,
     select_ablation_matrix,
@@ -59,3 +66,16 @@ def test_categorical_lists_are_intersections_in_reference_order() -> None:
         "day_of_week",
         "month",
     )
+
+
+def test_priority2_contract_changes_only_origin_count_or_category_treatment() -> None:
+    assert str(MOST_RECENT_ORIGIN.date()) == "2024-05-05"
+    assert PRIORITY2_FEATURES == {
+        "A5": APPROVED_FEATURES,
+        "A6": APPROVED_FEATURES,
+    }
+    assert PRIORITY2_CATEGORICAL_FEATURES == {
+        "A5": CATEGORICAL_FEATURES,
+        "A6": (),
+    }
+    assert len(CATEGORICAL_FEATURES) == 9
