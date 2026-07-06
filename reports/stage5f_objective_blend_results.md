@@ -87,6 +87,8 @@ Test whether target transforms, objective diversity, and a small number of prede
 
 ## Blend diagnostics
 
+The blend diagnostics below are fold-specific. The non-raw member set was selected separately per fold, so these blends are not directly transferable to the official test horizon without a new fixed-blend design.
+
 | Blend | Fold | Raw WMAE | Raw WAPE | Raw bias | Clipped rows | Beats Stage 5-E fold? |
 |---|---|---:|---:|---:|---:|---|
 | S5-G blend 70 percent raw control plus 30 percent best non-raw variant | F1 | 19.5047799164 | 0.2067252789 | -0.0224505251 | 19.5042933221 | Yes |
@@ -114,9 +116,7 @@ Test whether target transforms, objective diversity, and a small number of prede
 | poisson | 19.4601334855 | 0.1984511040 | -0.0165099164 |
 | S5-G blend 70 percent raw control plus 30 percent best non-raw variant | 19.2586753710 | 0.1991718991 | -0.0453981718 |
 | S5-G blend 50 percent raw control plus 50 percent best non-raw variant | 19.1352184341 | 0.1975483016 | -0.0441686186 |
-| S5-G equal blend of variants within 0.50 WMAE of best single: raw_l1, sqrt_l1, log1p_l1, tweedie_1_1, tweedie_1_3, poisson | 18.7703082979 | 0.1929383626 | -0.0000125293 |
-| S5-G equal blend of variants within 0.50 WMAE of best single: tweedie_1_1, tweedie_1_3, poisson | 20.4729505116 | 0.2021365987 | -0.0615041051 |
-| S5-G equal blend of variants within 0.50 WMAE of best single: sqrt_l1, log1p_l1, tweedie_1_1, tweedie_1_3, poisson | 17.7209781384 | 0.1839008849 | -0.0465949085 |
+| S5-G equal blend family (fold-specific membership; not promotable) | 18.9336363115 | 0.1929785522 | -0.0270310181 |
 
 ## Comparison to Stage 5-E
 
@@ -124,7 +124,8 @@ Test whether target transforms, objective diversity, and a small number of prede
 - Raw L1 control mean WMAE: 19.5424424315
 - Best single mean WMAE: 19.1888923539 (tweedie_1_1)
 - Best non-raw single mean WMAE: 19.1888923539 (tweedie_1_1)
-- Best blend mean WMAE: 17.7209781384 (S5-G equal blend of variants within 0.50 WMAE of best single: sqrt_l1, log1p_l1, tweedie_1_1, tweedie_1_3, poisson)
+- Fold-specific blend family mean WMAE: 18.9336363115
+- The previously reported 17.7209781384 value was the F4 bucket only, not a valid overall blend aggregate.
 
 ## Runtime and memory
 
@@ -139,5 +140,4 @@ Test whether target transforms, objective diversity, and a small number of prede
 
 ## Recommendation
 
-A follow-up candidate is justified for human review.
-
+Tweedie 1.1 is safe to promote. The blend family is rejected because the variant selection changed by fold and is not directly transferable to the official test set.
