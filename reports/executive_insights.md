@@ -122,6 +122,30 @@ This structure matters. The project did not just generate models; it enforced de
 - Better forecasting came from combining business logic, statistical validation, and audit discipline.
   The score improvement was not just “better modeling”; it was better control over the whole workflow.
 
+## 6.1 Example: a supply-chain hypothesis that did not earn promotion
+
+Business hypothesis:
+
+> SKU demand should not be forecast in isolation; it should be informed by warehouse-category demand pressure, category mean reversion, and changing item share.
+
+Result:
+
+- Stage 5-H fixed blend local mean WMAE: `19.0182851267`
+- Stage 5-G fixed blend local mean WMAE: `19.0089170845`
+- Stage 5-H was worse by `0.0093680422`
+
+Interpretation:
+
+- The hypothesis was plausible.
+- The features were cutoff-safe and audited.
+- The experiment did not beat the current best local benchmark.
+- No Kaggle candidate was promoted.
+- This is evidence of governance working, not a failure.
+
+The workflow made the hypothesis cheap to operationalize, but the validation framework prevented us from promoting extra complexity without evidence.
+
+This rejects the current feature design for the current model, not the entire business idea forever.
+
 ## 7. Executive hypothesis backlog
 
 These are future experiments, not proven findings.
@@ -139,10 +163,11 @@ These are future experiments, not proven findings.
 ## 8. Recommended next steps
 
 - Freeze Stage 5-G as the benchmark result.
+- Keep Stage 5-H as a documented rejected hypothesis.
 - Package the public repository and final artifacts.
 - Write a long-form article from the benchmark story.
 - Create the executive slide narrative later.
-- Only submit again if a new business-hypothesis experiment beats Stage 5-G locally and survives audit.
+- Future executive-hypothesis tests should be narrow, separately staged, and promoted only if they beat Stage 5-G locally and survive audit.
 
 ## 9. Public wording
 
