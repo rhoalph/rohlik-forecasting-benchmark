@@ -65,4 +65,4 @@ python3 -m scripts.validate_stage1
 
 ## License
 
-License to be selected before public release.
+MIT License. See [LICENSE](LICENSE).
