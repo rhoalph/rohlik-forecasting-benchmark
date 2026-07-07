@@ -1,5 +1,6 @@
 # Competition data and generated datasets
-data/raw/
+data/raw/*
+!data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
 
@@ -24,12 +25,18 @@ htmlcov/
 venv/
 .env
 .env.*
+.kaggle/
+credentials/
+secrets/
 *.pem
 *.key
+*.envrc
 
 # Downloaded archives and platform files
 *.zip
 *.tar
 *.tar.gz
 *.7z
+.cache/
+.pytest_cache/
 .DS_Store

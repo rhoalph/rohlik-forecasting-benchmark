@@ -1,20 +1,68 @@
 # Rohlik Forecasting Benchmark Run
 
-This repository is a retrospective public benchmark using the Kaggle Rohlik Sales Forecasting Challenge V2. Its purpose is to produce a reproducible, measured, and auditable forecasting run. It is not a forecasting product build.
+Retrospective public benchmark of the Kaggle Rohlik Sales Forecasting Challenge V2.
 
-The work will report two metrics separately:
+This repository demonstrates a domain-supervised, agentic forecasting workflow that was measured against the official Kaggle score. It is not a product build, and it is not presented as autonomous forecasting.
 
-- Kaggle's official WMAE, used for the competition score.
-- WAPE, used as a business-facing description of total absolute forecast error relative to total actual demand.
+Final official result:
 
-The workflow is agentic but supervised. A human reviews the evaluation logic, leakage controls, results, and any public claims. Leakage checks and time-based backtest discipline will be established before any model is built.
+- public WMAE: `20.62022`
+- private WMAE: `20.14904`
+- estimated rank slot: `215 / 777`
+- around top `28%` of the private leaderboard
+- better than roughly `72%` of teams
 
-This benchmark does not claim to replace planners or data scientists, and it is not presented as a live competition against the original teams. It is a retrospective test of reproducibility, measurement, and workflow discipline on public data.
+Approved public wording:
 
-## Current status
+> A domain-supervised agentic workflow produced an audited, officially scored Kaggle result that landed around the top 28% of the private leaderboard, better than roughly 72% of teams.
 
-Stage 1 implements the metric, official-grid alignment, rolling backtest splits, and leakage guards. The design is documented in `reports/backtest_design.md`. The `eval/` and `dataguard/` layers are pending human review and have not been frozen. No features or models have been implemented.
+What this repository demonstrates:
 
-Run the unit tests with `python3 -m pytest -q` and the full raw-data split validation with `python3 -m scripts.validate_stage1`.
+- frozen evaluation and leakage controls
+- local baselines and backtests
+- official Kaggle submissions
+- adversarial reviews and rejected hypotheses
+- public-solution-informed improvement, clearly labeled as such
+- human supervision over model selection, promotion, and claims
 
-The permanent project contract is in [rohlik_spec.md](rohlik_spec.md).
+It does not claim:
+
+- AI beat Kaggle
+- replaced data scientists
+- production ready
+- top tier
+- near winner
+- autonomous forecasting system
+
+The work is public-solution-informed and audited. It is a workflow and governance demonstration, not independent algorithmic novelty.
+
+## Key references
+
+- [Methodology](docs/METHODOLOGY.md)
+- [Results](docs/RESULTS.md)
+- [Reproducibility](docs/REPRODUCIBILITY.md)
+- [Executive insights](docs/EXECUTIVE_INSIGHTS.md)
+- [Permanent project contract](rohlik_spec.md)
+
+## Repository contents
+
+- `eval/` and `dataguard/` contain frozen scoring and leakage controls.
+- `reports/` contains experiment reports, reviews, and executive summaries.
+- `scripts/` contains reproducible experiment and candidate-generation scripts.
+- `features/` and `models/` contain the approved feature and model code.
+- `submissions/` contains committed candidate CSVs and official Kaggle submission artifacts.
+
+## Reproducibility
+
+Raw Kaggle data is intentionally excluded from version control. To reproduce the benchmark, download the Rohlik Sales Forecasting Challenge V2 data into `data/raw/` and follow [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+
+Run the test and validation checks with:
+
+```bash
+python3 -m pytest -q
+python3 -m scripts.validate_stage1
+```
+
+## License
+
+License to be selected before public release.
